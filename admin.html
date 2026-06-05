@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - Raja Furniture</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<script>
+if (localStorage.getItem("adminLoggedIn") !== "true") {
+  window.location.href = "admin-login.html";
+}
+</script>
+
+<nav>
+  <div class="logo-box">
+    <img src="image.png" alt="Raja Furniture Logo">
+    <h2>Raja Furniture</h2>
+  </div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="#" onclick="logout()">Logout</a>
+  </div>
+</nav>
+
+<div class="box">
+  <h2>Admin Panel</h2>
+
+  <input type="file" id="photo" accept="image/*">
+
+  <button onclick="uploadPhoto()">Post Photo</button>
+  
+</div>
+
+<h2 class="section-title">Current Posted Photos</h2>
+<div class="gallery" id="gallery"></div>
+
+<footer>
+  <p>© made by <span>certifence.com</span></p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

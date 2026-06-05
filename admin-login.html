@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login - Raja Furniture</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+
+<div class="login-box">
+  <img src="image.png" alt="Logo">
+  <h2>Admin Login</h2>
+
+  <input type="password" id="password" placeholder="Enter Password">
+
+  <button onclick="login()">Login</button>
+
+
+</div>
+
+<script>
+function login() {
+  const password = document.getElementById("password").value;
+
+  if (password === "Raja@123") {
+    localStorage.setItem("adminLoggedIn", "true");
+    window.location.href = "admin.html";
+  } else {
+    alert("Wrong Password");
+  }
+}
+</script>
+
+</body>
+</html>
