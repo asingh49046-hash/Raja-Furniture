@@ -8,12 +8,6 @@
 </head>
 <body>
 
-<script>
-if (localStorage.getItem("adminLoggedIn") !== "true") {
-  window.location.href = "admin-login.html";
-}
-</script>
-
 <nav>
   <div class="logo-box">
     <img src="image.png" alt="Raja Furniture Logo">
@@ -23,7 +17,7 @@ if (localStorage.getItem("adminLoggedIn") !== "true") {
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="contact.html">Contact Us</a>
-    <a href="#" onclick="logout()">Logout</a>
+    <a href="#" id="logoutBtn">Logout</a>
   </div>
 </nav>
 
@@ -32,17 +26,17 @@ if (localStorage.getItem("adminLoggedIn") !== "true") {
 
   <input type="file" id="photo" accept="image/*">
 
-  <button onclick="uploadPhoto()">Post Photo</button>
-  
+  <button id="uploadBtn">Post Photo</button>
 </div>
 
 <h2 class="section-title">Current Posted Photos</h2>
+
 <div class="gallery" id="gallery"></div>
 
 <footer>
-  <p>© made by <span>certifence.com</span></p>
+  <p>© 2026 Raja Furniture</p>
 </footer>
 
-<script src="script.js"></script>
+<script type="module" src="admin.js"></script>
 </body>
 </html>

@@ -12,24 +12,35 @@
   <img src="image.png" alt="Logo">
   <h2>Admin Login</h2>
 
+  <input type="email" id="email" placeholder="Enter Admin Email">
   <input type="password" id="password" placeholder="Enter Password">
 
-  <button onclick="login()">Login</button>
-
-
+  <button id="loginBtn">Login</button>
 </div>
 
-<script>
-function login() {
-  const password = document.getElementById("password").value;
+<script type="module">
+import { auth } from "./firebase.js";
 
-  if (password === "Raja@123") {
-    localStorage.setItem("adminLoggedIn", "true");
-    window.location.href = "admin.html";
-  } else {
-    alert("Wrong Password");
+import {
+  signInWithEmailAndPassword
+} from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+document.getElementById("loginBtn").addEventListener("click", async () => {
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  if (!email || !password) {
+    alert("Please enter email and password");
+    return;
   }
-}
+
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+    window.location.href = "admin.html";
+  } catch (error) {
+    alert("Wrong email or password");
+  }
+});
 </script>
 
 </body>
